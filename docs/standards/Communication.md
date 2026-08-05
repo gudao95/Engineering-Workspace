@@ -1,207 +1,387 @@
-\# Communication
+# Communication Standards
 
 > Version: 1.0
 
-This document defines the communication conventions for Engineering Workspace projects.
+This document defines the communication standards used throughout the Engineering Workspace.
 
-The purpose is to keep collaboration efficient, traceable, and respectful.
+Effective communication is essential for producing reliable engineering outcomes.
 
-\---
+The goal is to reduce ambiguity, improve collaboration, and make every engineering decision traceable.
 
-\# Objective
+---
 
-Communication exists to move the project forward.
+# Objectives
 
-Effective communication is:
+Communication should always aim to:
 
-\- Clear
+- Clarify requirements
+- Reduce misunderstandings
+- Improve development efficiency
+- Preserve engineering context
+- Enable future maintenance
 
-\- Direct
+Communication is part of engineering.
 
-\- Documented
+---
 
-\- Respectful
+# General Principles
 
-Ineffective communication wastes time, repeats discussions, and loses decisions.
+Communication should be:
 
-\---
-
-\# Core Principle
-
-Important information belongs in a durable medium.
-
-Written records are:
-
-\- searchable
-
-\- reviewable
-
-\- shareable
-
-Anything that affects a decision should be written down, not only spoken.
-
-\---
-
-\# Written over Verbal
-
-Prefer written communication for anything that affects engineering decisions.
-
-Verbal communication is for quick clarification, not for recording decisions.
-
-If a meeting outcome matters, write it down.
-
-If a chat outcome matters, write it down.
-
-\---
-
-\# Decisions Are Documented
-
-Every significant decision should be recorded with:
-
-\- The decision
-
-\- The reason
-
-\- Alternatives considered
-
-\- Expected impact
-
-The recording should go into the relevant documentation, not stay in private messages.
-
-Future maintainers need the reasoning.
-
-\---
-
-\# Questions
-
-Before asking, check whether the answer already exists in:
-
-\- The code
-
-\- The documentation
-
-\- The repository history
-
-Ask questions with context:
-
-\- What was tried
-
-\- What was expected
-
-\- What actually happened
-
-A question with context can be answered in one reply.
-
-A question without context starts a guessing loop.
-
-\---
-
-\# Status Updates
-
-A status update should state:
-
-\- What was done
-
-\- What is next
-
-\- What is blocking, if anything
-
-Keep updates short and factual.
-
-Describe progress, not activity.
-
-\---
-
-\# Review Feedback
-
-Feedback targets the code, never the author.
-
-Good feedback:
-
-\- Points to a specific location
-
-\- Explains the problem
-
-\- Suggests an alternative
-
-Bad feedback:
-
-\- Vague judgment
-
-\- Personal tone
-
-\- Unsupported preference
-
-\---
-
-\# Blenders
-
-A blocker should be communicated as soon as it is identified.
-
-Do not wait for the next meeting.
-
-A blocker statement includes:
-
-\- What is blocked
-
-\- Why
-
-\- What was tried
-
-\- What help is needed
-
-\---
-
-\# Disagreements
-
-Resolve disagreements with evidence.
-
-Compare:
-
-\- Facts
-
-\- Measurements
-
-\- Documented requirements
-
-Choose the option with the stronger evidence.
-
-Record the outcome so the discussion does not repeat.
-
-\---
-
-\# Availability
-
-Written communication is asynchronous.
-
-Do not expect an immediate answer for every message.
-
-Mark a message as urgent only when it is actually urgent.
-
-\---
-
-\# Language
-
-Use the shared language of the team.
-
-Write in complete sentences.
+- Clear
+- Precise
+- Complete
+- Objective
+- Actionable
 
 Avoid:
 
-\- ALL CAPS
+- Guessing
+- Emotional language
+- Vague descriptions
+- Missing context
 
-\- Excessive punctuation
+---
 
-\- Ambiguous pronouns
+# Requirement Description
 
-Clarity beats brevity. Brevity beats volume.
+Every task should answer the following questions.
 
-\---
+## What?
 
-\# Documentation over Repetition
+What needs to be implemented?
 
-If the same question keeps appearing, write the answer down.
+## Why?
 
-The answer belongs in documentation.
+Why is the change required?
 
-The same applies to communication rules, workflow steps, and common mistakes.
+## Scope?
+
+Which project or module is affected?
+
+## Constraints?
+
+What limitations exist?
+
+## Expected Result?
+
+How should success be measured?
+
+---
+
+# Preferred Requirement Template
+
+```
+Background
+
+Problem
+
+Goal
+
+Scope
+
+Constraints
+
+Acceptance Criteria
+```
+
+Example
+
+```
+Background
+
+MES cannot reconnect to the PLC after a network interruption.
+
+Problem
+
+Production must be restarted manually.
+
+Goal
+
+Automatically reconnect within 30 seconds.
+
+Scope
+
+Communication module only.
+
+Constraints
+
+Existing communication interface cannot change.
+
+Acceptance Criteria
+
+Reconnect succeeds automatically.
+No UI freeze.
+```
+
+---
+
+# Asking Questions
+
+When information is missing,
+
+ask questions that are:
+
+- Specific
+- Short
+- Necessary
+
+Good
+
+```
+Should the reconnect attempt continue indefinitely,
+or stop after a maximum number of retries?
+```
+
+Bad
+
+```
+Can you explain more?
+```
+
+---
+
+# Assumptions
+
+Never hide assumptions.
+
+Whenever assumptions are made,
+
+state them explicitly.
+
+Example
+
+```
+Assumption:
+
+Only one PLC is connected at a time.
+```
+
+---
+
+# Engineering Discussions
+
+Discussions should focus on:
+
+- Requirements
+- Design
+- Trade-offs
+- Risks
+- Maintainability
+
+Avoid discussions based only on personal preference.
+
+Engineering decisions should always have technical reasons.
+
+---
+
+# Reporting Bugs
+
+Every bug report should include:
+
+```
+Description
+
+Expected Behavior
+
+Actual Behavior
+
+Steps to Reproduce
+
+Environment
+
+Logs
+
+Possible Cause
+```
+
+Example
+
+```
+Description
+
+PLC disconnects after approximately 20 minutes.
+
+Expected
+
+Stable communication.
+
+Actual
+
+Automatic reconnection never occurs.
+
+Steps
+
+1. Connect PLC.
+2. Disable network.
+3. Restore network.
+
+Environment
+
+Windows 11
+.NET 8
+Siemens PLC
+
+Logs
+
+Connection timeout.
+```
+
+---
+
+# Reporting Risks
+
+Whenever a risk is identified,
+
+describe:
+
+- Risk
+- Impact
+- Probability
+- Suggested mitigation
+
+Example
+
+```
+Risk
+
+Database transaction timeout.
+
+Impact
+
+Production data may be lost.
+
+Mitigation
+
+Retry with exponential backoff.
+```
+
+---
+
+# Engineering Decisions
+
+Important decisions should always record:
+
+```
+Problem
+
+Options
+
+Decision
+
+Reason
+
+Impact
+```
+
+Future engineers should understand **why** a decision was made.
+
+---
+
+# Human ↔ AI Collaboration
+
+Before requesting implementation,
+
+provide:
+
+- Project
+- Module
+- Objective
+- Constraints
+- Existing behavior
+
+Avoid asking AI to modify code without context.
+
+---
+
+# AI Responsibilities
+
+AI should:
+
+- Explain significant decisions
+- Ask when uncertain
+- Preserve existing behavior
+- Follow workspace standards
+- Update documentation when necessary
+
+AI should not:
+
+- Guess business rules
+- Modify unrelated modules
+- Ignore project documents
+- Invent missing requirements
+
+---
+
+# Human Responsibilities
+
+The engineer should:
+
+- Provide accurate requirements
+- Clarify business logic
+- Review AI-generated code
+- Verify final behavior
+
+AI assists engineering.
+
+Human remains responsible for engineering decisions.
+
+---
+
+# Review Communication
+
+Code review feedback should focus on:
+
+- Correctness
+- Readability
+- Maintainability
+- Performance
+- Architecture
+
+Avoid comments such as:
+
+```
+I don't like it.
+```
+
+Prefer:
+
+```
+This implementation introduces unnecessary coupling between modules.
+```
+
+---
+
+# Meeting Notes
+
+When recording technical discussions,
+
+capture:
+
+- Topic
+- Participants
+- Decisions
+- Action Items
+
+Avoid recording unnecessary conversation.
+
+---
+
+# Documentation Communication
+
+Documentation should answer:
+
+- What?
+- Why?
+- How?
+- When?
+
+Documentation should never assume prior knowledge.
+
+---
+
+# Final Rule
+
+Engineering communication exists to reduce uncertainty.
+
+Every document, discussion, and decision should make future work easier.
