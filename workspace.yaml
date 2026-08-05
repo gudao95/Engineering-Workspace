@@ -1,0 +1,178 @@
+workspace:
+  name: Engineering Workspace
+  version: 1.0.0
+  stage: Foundation
+  owner: gudao95
+
+description: >
+  A reusable engineering workspace for long-term industrial software
+  development, AI collaboration, engineering standards,
+  reusable templates, and knowledge accumulation.
+
+primary_language: C#
+
+technology_stack:
+
+  framework: .NET
+
+  ui: WinForms
+
+  database:
+
+    - SQL Server
+
+  communication:
+
+    - TCP/IP
+
+    - Serial Port
+
+    - Modbus
+
+engineering:
+
+  philosophy:
+
+    - Documentation First
+
+    - Simplicity
+
+    - Maintainability
+
+    - Consistency
+
+    - Reusability
+
+repository:
+
+  root: .
+
+directories:
+
+  docs: docs
+
+  memory: memory
+
+  templates: templates
+
+  projects: projects
+
+  archive: archive
+
+documents:
+
+  entry:
+
+    - README.md
+
+    - AGENTS.md
+
+    - workspace.yaml
+
+  standards:
+
+    - docs/standards/Development_Standards.md
+
+    - docs/standards/Coding_Style.md
+
+    - docs/standards/Git_Workflow.md
+
+    - docs/standards/Naming.md
+
+    - docs/standards/Communication.md
+
+  workflow:
+
+    - docs/workflow/SOP.md
+
+  references:
+
+    - docs/references
+
+memory:
+
+  reusable:
+
+    - memory/compound
+
+    - memory/pitfalls
+
+templates:
+
+  default_project:
+
+    templates/project
+
+project_structure:
+
+  required:
+
+    - README.md
+
+    - docs
+
+    - src
+
+    - tests
+
+    - scripts
+
+development_workflow:
+
+  - Receive Task
+
+  - Read README
+
+  - Read AGENTS
+
+  - Read Project Documents
+
+  - Analyze Existing Code
+
+  - Design
+
+  - Implement
+
+  - Verify
+
+  - Update Documentation
+
+  - Update Memory
+
+  - Commit
+
+agent_rules:
+
+  documentation_required: true
+
+  update_memory_when_reusable: true
+
+  avoid_unrelated_changes: true
+
+  ask_when_uncertain: true
+
+  prefer_existing_patterns: true
+
+quality:
+
+  prioritize:
+
+    - Readability
+
+    - Maintainability
+
+    - Consistency
+
+    - Low Coupling
+
+    - High Cohesion
+
+future_projects:
+
+  location: projects
+
+status:
+
+  current_release: v1.0
+
+  development_status: Active
